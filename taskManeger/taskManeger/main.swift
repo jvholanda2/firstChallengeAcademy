@@ -11,11 +11,16 @@ import Foundation
 class Task {
     var title: String
     var descritionTask: String
+    var status: Bool = false
+    var isDeleted: Bool
     
-    init(name: String, descriptionTaks: String){
-        self.name = name
+    
+    init(title: String, descriptionTaks: String, status: Bool, isDeleted: Bool){
+        self.title = title
         self.descritionTask = descriptionTaks
+        self.status = status
+        self.isDeleted = isDeleted
     }
 }
 
-var newTaskList: [Task] = []
+var taskList: [Task] = [Task()]
