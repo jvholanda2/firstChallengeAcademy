@@ -83,6 +83,7 @@ class BancoDeDados {
         // altera o banco no final da aplicacao
         self.buildTasksToFile(listTask: listTask)
         print("Salvando alterações no arquivo.")
+        print("\t")
         
     }
 

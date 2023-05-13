@@ -20,6 +20,12 @@ class Interface{
     }
     
     func listarTarefas(comID:Bool){
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         if comID {
             let max:Int = taskList.taskList.count - 1
             print(max)
@@ -31,6 +37,12 @@ class Interface{
         }
     }
     func listarTarefasExcluidas(comID:Bool){
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         if comID {
             let max:Int = taskList.taskList.count - 1
             print(max)
@@ -48,18 +60,26 @@ class Interface{
         if var newTitle: String = readLine() {
             newTask.title = newTitle
         }
-        print("Digite a descriçao da tarefa:")
+        print("Digite a descrição da tarefa:")
         if var newDescription: String = readLine() {
             newTask.description = newDescription
         }
         taskList.taskList.append(newTask)
         print("Parabéns! Você criou uma nova tarefa!")
+        print("\t")
         print("Título: \(newTask.title)")
         print("Descrição: \(newTask.description)")
+        print("\t")
         return newTask
     }
     
     func deleteTask(){
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         self.listarTarefas(comID:true)
         print("Qual deseja deletar ?")
         var idTask:Int
@@ -75,23 +95,37 @@ class Interface{
     
     func updateTask(){
         // Listar todas e pedir ao usuario para escolher uma!
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         self.listarTarefas(comID:true)
         print("Qual deseja escolher ?")
         var idTask:Int
         if let input = readLine(), let number = Int(input) {
             idTask = number
-        } else {
+        } else{
             print("Digite uma opção valida")
             return updateTask()
+        }
+        //corrigir aqui
+        if taskList.taskList[idTask] != nil {
+            print("oi")
         }
         var taskModified: Task = taskList.taskList[idTask]
         print("Digite o novo título:")
         if var titleModified = readLine() {
-            taskModified.title = titleModified
+            if titleModified.count > 0 {
+                taskModified.title = titleModified
+            }
         }
         print("Digite a nova descrição:")
         if var descriptionModified = readLine() {
-            taskModified.description = descriptionModified
+            if descriptionModified.count > 0 {
+               taskModified.description = descriptionModified
+            }
         }
         
         print("Parabens! Você atualizou sua tarefa!")
@@ -128,6 +162,12 @@ class Interface{
     }
     
     func marcarComoConcluida(){
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         self.listarTarefas(comID:true)
         print("Qual deseja marcar como concluida ?")
         var idTask:Int
@@ -143,6 +183,12 @@ class Interface{
     }
     
     func recuperarTask(){
+        if taskList.taskList.count == 0 {
+            print("\n")
+            print("Sua lista de tarefas está vazia!")
+            print("\n")
+            return
+        }
         self.listarTarefasExcluidas(comID:true)
         print("Qual deseja recuperar como concluida ?")
         var idTask:Int

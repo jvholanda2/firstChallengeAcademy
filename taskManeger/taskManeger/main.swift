@@ -16,7 +16,7 @@ var interface = Interface(taskList: TaskApp)
 
 while(true) {
     print("\t#Gerenciador de Tarefas#\n")
-    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar tarefa\n5.Listar Tarefas\n6.Marcar Task Como Concluida")
+    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar Tarefa\n5.Listar Tarefas\n6.Marcar Tarefa Como Concluida")
     print("\n")
     var menu: String = ""
     
@@ -25,22 +25,22 @@ while(true) {
     }
     switch menu {
         case "1":
-            print("escolheu 1")
+            print("\t#Criar uma nova tarefa#")
             interface.createTask()
         case "2":
-            print("escolheu 2")
+            print("\t#Atualizar tarefa#")
             interface.updateTask()
         case "3":
-            print("escolheu 3")
+            print("\t#Deletar tarefa#")
             interface.deleteTask()
         case "4":
-            print("escolheu 4")
+            print("\t#Recuperar tarefa#")
             interface.recuperarTask()
         case "5":
-            print("escolheu 5")
+            print("\t#Listar tarefas#")
             interface.listarTarefas(comID: false)
         case "6":
-            print("escolheu 6")
+            print("\t#Marcar tarefa como concluida#")
             interface.marcarComoConcluida();
     default:
         print("Digite uma opção valida!")
