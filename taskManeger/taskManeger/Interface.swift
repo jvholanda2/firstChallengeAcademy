@@ -169,7 +169,7 @@ class Interface{
             return
         }
         self.listarTarefas(comID:true)
-        print("Qual deseja marcar como concluida ?")
+        print("Qual tarefa deseja alterar o status?")
         var idTask:Int
         if let input = readLine(), let number = Int(input) {
             idTask = number
