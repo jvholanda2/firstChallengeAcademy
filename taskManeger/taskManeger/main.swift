@@ -16,7 +16,7 @@ var interface = Interface(taskList: TaskApp)
 
 while(true) {
     print("\t#Gerenciador de Tarefas#\n")
-    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar Tarefa\n5.Listar Tarefas\n6.Marcar Tarefa Como Concluida")
+    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar Tarefa\n5.Listar Tarefas\n6.Mudar Status da Tarefa")
     print("\n")
     var menu: String = ""
     
