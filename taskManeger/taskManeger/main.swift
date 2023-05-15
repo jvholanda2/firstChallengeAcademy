@@ -40,7 +40,7 @@ while(true) {
             print("\t#Listar tarefas#")
             interface.listarTarefas(comID: false)
         case "6":
-            print("\t#Marcar tarefa como concluida#")
+            print("\t#Mudar status da tarefa#")
             interface.marcarComoConcluida();
     default:
         print("Digite uma opção valida!")

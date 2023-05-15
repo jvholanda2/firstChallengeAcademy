@@ -39,12 +39,12 @@ class Task {
     }
     func printTask(){
         if !self.isDeleted {
-            print("titulo: \(self.title) | description: \(self.description) | status : \(self.status)")
+            print("Título: \(self.title) | Descrição: \(self.description) | Status: \(self.status ?"concluído":"em andamento")")
         }
     }
     func printTask(id:Int){
         if !self.isDeleted {
-            print("ID : \(id) | titulo: \(self.title) | description: \(self.description) | status : \(self.status)")
+            print("ID : \(id) | titulo: \(self.title) | description: \(self.description) | status : \(self.status  ?"concluído":"em andamento")")
         }
     }
     
