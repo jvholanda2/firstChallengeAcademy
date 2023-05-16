@@ -105,12 +105,12 @@ class BancoDeDados {
     }
     
     func mockBd(){
-        var mockListTasks:[Task] = [
+        let mockListTasks:[Task] = [
             Task(title: "Task", description: "Desc"),
             Task(title: "Task", description: "Desc"),
             Task(title: "Task3", description: "Desc"),
         ]
-        var mockClass = TaskList(taskList: mockListTasks)
+        let mockClass = TaskList(taskList: mockListTasks)
         self.buildTasksToFile(listTask: mockClass)
     }
 

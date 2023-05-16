@@ -7,19 +7,14 @@
 
 import Foundation
 
-class Interface{
+class Interface {
     var taskList:TaskList
     
     init(taskList: TaskList) {
         self.taskList = taskList
     }
     
-    func showSearch(string:String){
-        // faz a busca
-        // mostra pro usuario para cada indice, as tasks.
-    }
-    
-    func listarTarefas(comID:Bool){
+    func listarTarefas(comID:Bool) {
         if taskList.taskList.count == 0 {
             print("\n")
             print("Sua lista de tarefas está vazia!")
@@ -36,7 +31,7 @@ class Interface{
             taskList.printTasks()
         }
     }
-    func listarTarefasExcluidas(comID:Bool){
+    func listarTarefasExcluidas(comID:Bool) {
         if taskList.taskList.count == 0 {
             print("\n")
             print("Sua lista de tarefas está vazia!")
@@ -54,14 +49,14 @@ class Interface{
         }
     }
     
-    func createTask() -> Task{
+    func createTask() {
         let newTask: Task = Task(title: "", description: "")
         print("Digite o título da tarefa:")
-        if var newTitle: String = readLine() {
+        if let newTitle: String = readLine() {
             newTask.title = newTitle
         }
         print("Digite a descrição da tarefa:")
-        if var newDescription: String = readLine() {
+        if let newDescription: String = readLine() {
             newTask.description = newDescription
         }
         taskList.taskList.append(newTask)
@@ -70,10 +65,9 @@ class Interface{
         print("Título: \(newTask.title)")
         print("Descrição: \(newTask.description)")
         print("\t")
-        return newTask
     }
     
-    func deleteTask(){
+    func deleteTask() {
         if taskList.taskList.count == 0 {
             print("\n")
             print("Sua lista de tarefas está vazia!")
@@ -93,7 +87,7 @@ class Interface{
         print("A tarefa foi deletada!")
     }
     
-    func updateTask(){
+    func updateTask() {
         // Listar todas e pedir ao usuario para escolher uma!
         if taskList.taskList.count == 0 {
             print("\n")
@@ -111,18 +105,18 @@ class Interface{
             return updateTask()
         }
         //corrigir aqui
-        if taskList.taskList[idTask] != nil {
-            print("oi")
-        }
-        var taskModified: Task = taskList.taskList[idTask]
+        //if taskList.taskList[idTask] != nil {
+        //    print("")
+        //}
+        let taskModified: Task = taskList.taskList[idTask]
         print("Digite o novo título:")
-        if var titleModified = readLine() {
+        if let titleModified = readLine() {
             if titleModified.count > 0 {
                 taskModified.title = titleModified
             }
         }
         print("Digite a nova descrição:")
-        if var descriptionModified = readLine() {
+        if let descriptionModified = readLine() {
             if descriptionModified.count > 0 {
                taskModified.description = descriptionModified
             }
@@ -131,7 +125,7 @@ class Interface{
         print("Parabens! Você atualizou sua tarefa!")
     }
     
-    func busca(textoBuscado:String) -> Int{
+    func busca(textoBuscado:String) -> Int {
         //continua ate o usuario escolher somente um.
         var res = taskList.searchByDescription(descriptionSearched: textoBuscado)
         print(res)
@@ -147,7 +141,7 @@ class Interface{
         }
         
         print("Qual voce deseja escolher:")
-        while(true){
+        while(true) {
             res.forEach { idx in
                 taskList.taskList[idx].printTask(id:idx)
             }
@@ -161,7 +155,7 @@ class Interface{
         }
     }
     
-    func marcarComoConcluida(){
+    func marcarComoConcluida() {
         if taskList.taskList.count == 0 {
             print("\n")
             print("Sua lista de tarefas está vazia!")
@@ -182,7 +176,7 @@ class Interface{
         print("Tarefa Atualizada com sucesso")
     }
     
-    func recuperarTask(){
+    func recuperarTask() {
         if taskList.taskList.count == 0 {
             print("\n")
             print("Sua lista de tarefas está vazia!")
