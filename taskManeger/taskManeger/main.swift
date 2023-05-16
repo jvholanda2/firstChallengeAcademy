@@ -13,10 +13,11 @@ TaskApp.taskList = bd.bancoTasks
 
 var interface = Interface(taskList: TaskApp)
 //interface.busca(textoBuscado: "Task")
+var onMenu = true
 
-while(true) {
+while(onMenu) {
     print("\t#Gerenciador de Tarefas#\n")
-    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar Tarefa\n5.Listar Tarefas\n6.Mudar Status da Tarefa")
+    print("1.Criar Tarefa\n2.Atualizar Tarefa\n3.Deletar Tarefas\n4.Recuperar Tarefa\n5.Listar Tarefas\n6.Mudar Status da Tarefa\n\n Pressione Enter para sair do programa!")
     print("\n")
     var menu: String = ""
     
@@ -42,8 +43,12 @@ while(true) {
         case "6":
             print("\t#Mudar status da tarefa#")
             interface.marcarComoConcluida();
-    default:
-        print("Digite uma opção valida!")
+        case "":
+            print("Saindo do programa! :)")
+            onMenu = false
+            
+        default:
+            print("Digite uma opção valida!")
     }
     
     bd.update(listTask: TaskApp)
