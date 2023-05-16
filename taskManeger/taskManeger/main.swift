@@ -20,7 +20,7 @@ while(true) {
     print("\n")
     var menu: String = ""
     
-    if var input: String = readLine() {
+    if let input: String = readLine() {
         menu = input
     }
     switch menu {
