@@ -15,7 +15,7 @@ class BancoDeDados {
     let mock:String = ""
     var fileContents:String = ""
     
-    func readText(){
+    func readText() {
         // procura o arquivo, se nao acha, ele cria.
         // le o texto dentro do arquivo, monta o objeto e retorna a lista.
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -34,7 +34,7 @@ class BancoDeDados {
         }
     }
     
-    func buildTasksToFile(listTask:TaskList){
+    func buildTasksToFile(listTask:TaskList) {
         // montar dentro do arquivo as tasks.
         var content:String = ""
         listTask.taskList.forEach { task in
@@ -45,14 +45,14 @@ class BancoDeDados {
             
             do {
                 try content.write(to: fileURL, atomically: true, encoding: .utf8)
-                print("Escrita concluída com sucesso!")
+                //print("Escrita concluída com sucesso!")
             } catch {
                 print("Erro ao escrever no arquivo: \(error)")
             }
         }
     }
     
-    func buildTaskFromFile(){
+    func buildTaskFromFile() {
         self.readText()
         let lines = fileContents.components(separatedBy: "\n")
         lines.forEach { line in
@@ -79,16 +79,16 @@ class BancoDeDados {
         }
     }
     
-    func update(listTask: TaskList){
+    func update(listTask: TaskList) {
         // altera o banco no final da aplicacao
         self.buildTasksToFile(listTask: listTask)
-        print("Salvando alterações no arquivo.")
+        //print("Salvando alterações no arquivo.")
         print("\t")
         
     }
 
     
-    func createFile(){
+    func createFile() {
         print("Inicializando o banco de dados!")
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = documentDirectory.appendingPathComponent(fileName)
@@ -104,7 +104,7 @@ class BancoDeDados {
         print("Banco Inicializado com sucesso! :)")
     }
     
-    func mockBd(){
+    func mockBd() {
         let mockListTasks:[Task] = [
             Task(title: "Task", description: "Desc"),
             Task(title: "Task", description: "Desc"),

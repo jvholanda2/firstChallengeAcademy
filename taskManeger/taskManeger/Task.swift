@@ -14,7 +14,7 @@ class Task {
     var isDeleted: Bool = false
     
     
-    init(title: String, description: String){
+    init(title: String, description: String) {
         self.title = title
         self.description = description
     }
@@ -27,17 +27,18 @@ class Task {
     }
     
     
-    func updateTask(task: Task){
+    func updateTask(task: Task) {
         self.title = task.title
         self.description = task.description
         
         //printTask()
     }
     
-    func changeStatus(){
+    func changeStatus() {
         self.status = !self.status
     }
-    func printTask(){
+    
+    func printTask() {
         if !self.isDeleted {
             print("Título: \(self.title) | Descrição: \(self.description) | Status: \(self.status ?"concluído":"em andamento")")
         }

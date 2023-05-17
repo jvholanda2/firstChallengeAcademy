@@ -59,12 +59,19 @@ class Interface {
         if let newDescription: String = readLine() {
             newTask.description = newDescription
         }
-        taskList.taskList.append(newTask)
-        print("Parabéns! Você criou uma nova tarefa!")
-        print("\t")
-        print("Título: \(newTask.title)")
-        print("Descrição: \(newTask.description)")
-        print("\t")
+        if newTask.title.count < 1 || newTask.description.count < 1{
+            print("\nNão é possivel salvar tarefas com campos em branco.")
+            print("Vamos tentar novamente.\n")
+            interface.createTask()
+        } else {
+            taskList.taskList.append(newTask)
+            print("Parabéns! Você criou uma nova tarefa!")
+            print("\t")
+            print("Título: \(newTask.title)")
+            print("Descrição: \(newTask.description)")
+            print("\t")
+            
+        }
     }
     
     func deleteTask() {
@@ -105,24 +112,27 @@ class Interface {
             return updateTask()
         }
         //corrigir aqui
-        //if taskList.taskList[idTask] != nil {
-        //    print("")
-        //}
-        let taskModified: Task = taskList.taskList[idTask]
-        print("Digite o novo título:")
-        if let titleModified = readLine() {
-            if titleModified.count > 0 {
-                taskModified.title = titleModified
+        if taskList.taskList[idTask] != nil {
+            //print("Escolha uma opção válida.")
+            
+            let taskModified: Task = taskList.taskList[idTask]
+            print("Digite o novo título:")
+            if let titleModified = readLine() {
+                if titleModified.count > 0 {
+                    taskModified.title = titleModified
+                }
             }
-        }
-        print("Digite a nova descrição:")
-        if let descriptionModified = readLine() {
-            if descriptionModified.count > 0 {
-               taskModified.description = descriptionModified
+            print("Digite a nova descrição:")
+            if let descriptionModified = readLine() {
+                if descriptionModified.count > 0 {
+                    taskModified.description = descriptionModified
+                }
             }
+            
+            print("Parabens! Você atualizou sua tarefa!")
+        } else {
+            print("Digite um ID válido!")
         }
-        
-        print("Parabens! Você atualizou sua tarefa!")
     }
     
     func busca(textoBuscado:String) -> Int {
@@ -184,7 +194,7 @@ class Interface {
             return
         }
         self.listarTarefasExcluidas(comID:true)
-        print("Qual deseja recuperar como concluida ?")
+        print("Qual deseja recuperar como concluida?")
         var idTask:Int
         if let input = readLine(), let number = Int(input) {
             idTask = number
